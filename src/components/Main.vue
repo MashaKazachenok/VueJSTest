@@ -41,6 +41,15 @@ export default {
       this.isEven = count === parseFloat(count) ? !(count % 2) : void 0;
     }
   },
+  created: () => {
+    //console.log("component created");
+  },
+  mounted: () => {
+    //console.log("component mounted");
+  },
+  destroyed: () => {
+    //console.log("component destroyed");
+  },
   methods: {
     back() {
       this.$router.go(-1);
