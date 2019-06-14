@@ -1,5 +1,6 @@
 <template>
   <div id="container">
+    <span v-if="isEven" v-bind:style="helloStyle">Hello</span>
     <a href="#" @click="back()">Go Back</a>
     <button v-on:click="onAddCard()" style="margin-left: 10px">Add card</button>
     <div style="display: flex">
@@ -20,9 +21,25 @@ export default {
   components: {
     Card
   },
+  data() {
+    return {
+      isEven: false,
+      helloStyle: {
+        margin: "15px",
+        padding: "10px",
+        backgroundColor: "#41FFE9"
+      }
+    };
+  },
   name: "container",
   computed: {
     ...mapGetters(["cardsToRender", "allCards"])
+  },
+  watch: {
+    allCards: function(val) {
+      const count = val.length;
+      this.isEven = count === parseFloat(count) ? !(count % 2) : void 0;
+    }
   },
   methods: {
     back() {
