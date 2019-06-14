@@ -3,6 +3,7 @@
     <div>Card ID: {{ card.id }}</div>
     <div>Card Number: {{ card.number }}</div>
     <div>Card Title: {{ card.title }}</div>
+    <div>Multiplication: {{ multiplication }}</div>
   </div>
 </template>
 <script>
@@ -22,6 +23,14 @@ export default {
   methods: {
     back() {
       this.$router.go(-1);
+    }
+  },
+  computed: {
+    multiplication: function() {
+      if (!this.card) {
+        return 0;
+      }
+      return this.card.id * this.card.number;
     }
   }
 };
