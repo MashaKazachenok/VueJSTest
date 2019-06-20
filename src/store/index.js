@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import * as types from './mutation-types';
 
 Vue.use(Vuex);
 
@@ -14,7 +15,7 @@ const store = new Vuex.Store({
     ]
   },
   mutations: {
-    addCard({ cards }, card) {
+    [types.ADD_CARD]({ cards }, card) {
       cards.push({
         ...card
       });
@@ -39,7 +40,11 @@ const store = new Vuex.Store({
       }
       return cardsToRender;
     }
+  },
+  actions: {
+    addCard({ commit }, payload) {
+      commit(types.ADD_CARD, payload);
+    }
   }
 });
-
 export default store;

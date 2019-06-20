@@ -14,8 +14,7 @@
 </template>
 <script>
 import Card from "./Card";
-import { mapGetters, mapMutations } from "vuex";
-import store from "../store";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   components: {
@@ -61,9 +60,9 @@ export default {
         confirm("I am sorry! You have reached the limit!");
         return;
       }
-      store.commit("addCard", { id: lastId + 1, number: 23, title: "new" });
+      this.addCard({ id: lastId + 1, number: 23, title: "new" });
     },
-    ...mapMutations(["addCard"])
+    ...mapActions(["addCard"])
   }
 };
 </script>
