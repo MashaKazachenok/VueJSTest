@@ -1,12 +1,12 @@
 <template>
   <div id="container">
-    <span v-if="isEven" v-bind:style="helloStyle">Hello</span>
+    <span v-if="isEven" :style="helloStyle">Hello</span>
     <a href="#" @click="back()">Go Back</a>
-    <button v-on:click="onAddCard()" style="margin-left: 10px">Add card</button>
+    <button @click="onAddCard()" style="margin-left: 10px">Add card</button>
     <div style="display: flex">
-      <div v-for="(column, index) in cardsToRender" v-bind:key="index">
-        <div v-for="row in column" v-bind:key="row.id" style="padding: 5px;">
-          <Card v-bind:card="row"/>
+      <div v-for="(column, index) in cardsToRender" :key="index">
+        <div v-for="row in column" :key="row.id" style="padding: 5px;">
+          <Card :card="row"/>
         </div>
       </div>
     </div>

@@ -3,10 +3,7 @@ import Welcome from './components/Welcome.vue';
 
 const routes = [
   { path: '/', component: Welcome },
-  {
-    path: '/main',
-    component: Main
-  }
+  { path: '/main', component: Main }
 ];
 
 export default routes;

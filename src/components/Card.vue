@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:style="cardContainer">
+  <div :style="cardContainer">
     <div>Card ID: {{ card.id }}</div>
     <div>Card Number: {{ card.number }}</div>
     <div>Card Title: {{ card.title }}</div>
