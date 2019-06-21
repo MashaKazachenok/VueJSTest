@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import * as types from './mutation-types';
+import * as mutationTypes from './mutation-types';
+import * as actionTypes  from "../store/action-types";
 
 Vue.use(Vuex);
 
@@ -15,7 +16,7 @@ const store = new Vuex.Store({
     ]
   },
   mutations: {
-    [types.ADD_CARD]({ cards }, card) {
+    [mutationTypes.ADD_CARD]({ cards }, card) {
       cards.push({
         ...card
       });
@@ -42,8 +43,8 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    addCard({ commit }, payload) {
-      commit(types.ADD_CARD, payload);
+    [actionTypes.ADD_CARD]({ commit }, payload) {
+      commit(mutationTypes.ADD_CARD, payload);
     }
   }
 });

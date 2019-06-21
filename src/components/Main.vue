@@ -13,8 +13,10 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
+
 import Card from "./Card";
-import { mapGetters, mapActions } from "vuex";
+import { ADD_CARD } from "../store/action-types";
 
 export default {
   components: {
@@ -60,9 +62,12 @@ export default {
         confirm("I am sorry! You have reached the limit!");
         return;
       }
-      this.addCard({ id: lastId + 1, number: 23, title: "new" });
-    },
-    ...mapActions(["addCard"])
+      this.$store.dispatch(ADD_CARD, {
+        id: lastId + 1,
+        number: 23,
+        title: "new"
+      });
+    }
   }
 };
 </script>
